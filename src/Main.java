@@ -20,11 +20,13 @@ public class Main {
         Каждый компаратор реализовать используя анонимный класс и используя лямбда-выражение. Проверить, вызывая метод sort
          */
 
-        List<Person> personList2 = new ArrayList<>(List.of(new Person("Джек",16),
-                new Person("Мико",15),
-                new Person("Раф",12),
-                new Person("Ретчет",27),
-                new Person("Оптимус",26)));
+        List<Person> personList2 = new ArrayList<>();
+        personList2.add(new Person("Джек",16));
+        personList2.add(new Person("Мико",15));
+        personList2.add(new Person("Раф",12));
+        personList2.add(new Person("Ретчет",27));
+        personList2.add(new Person("Оптимус",26));
+        personList2.add(new Person("Бамблби",16));
 
         compare(personList2);
         /*
@@ -51,10 +53,10 @@ public class Main {
         personList2.sort((p1, p2) -> p1.getAge()-p2.getAge());
         System.out.println("Дз 2,3.   " + personList2);
     }
-    public static Map<Integer,Person> mapWithAge(List<Person> personList2){
-        Map<Integer,Person> map2 = new HashMap<>();
+    public static Map<Integer,List<Person>> mapWithAge(List<Person> personList2){
+        Map<Integer,List<Person>> map2 = new HashMap<>();
         for (Person person : personList2){
-            map2.put(person.getAge(),person);
+            map2.computeIfAbsent(person.getAge(), list -> new ArrayList<>()).add(person);
         }
         return map2;
     }
