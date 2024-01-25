@@ -20,14 +20,12 @@ public class Main {
         Каждый компаратор реализовать используя анонимный класс и используя лямбда-выражение. Проверить, вызывая метод sort
          */
 
-        List<Person> personList2 = new ArrayList<>();
-        personList2.add(new Person("Джек",16));
-        personList2.add(new Person("Мико",15));
-        personList2.add(new Person("Раф",12));
-        personList2.add(new Person("Ретчет",27));
-        personList2.add(new Person("Оптимус",26));
-        personList2.add(new Person("Бамблби",16));
-
+        List<Person> personList2 = new ArrayList<>(List.of(new Person("Джек",16),
+                                                            new Person("Мико",15),
+                                                            new Person("Раф",12),
+                                                            new Person("Ретчет",27),
+                                                            new Person("Оптимус",26),
+                                                            new Person("Бамблби",16)));
         compare(personList2);
         /*
          Дан List<Person>. Каждый Person имеет имя и возраст. Написать метод который сформирует Map<Integer, List<Person> >,
